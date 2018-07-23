@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim-rails'
 gem 'interactor', '~> 3.0'
+gem 'http'
 
 group :development, :test do
   gem 'factory_bot_rails'
