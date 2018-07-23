@@ -23,6 +23,8 @@ end
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec'
 end
 
 group :test do
