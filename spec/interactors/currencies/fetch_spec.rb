@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Currencies::Fetch do
   describe '.call' do
-    subject { described_class.call }
+    subject(:context) { described_class.call }
 
     let(:usd_value_string) { '555,12' }
     let(:usd_value_float) { usd_value_string.tr!(',', '.').to_f }
@@ -16,11 +16,11 @@ describe Currencies::Fetch do
 
     context 'when response is correct' do
       it 'success result' do
-        expect(subject).to be_success
+        expect(context).to be_success
       end
 
       it 'fetch correct value' do
-        expect(subject.usd_value).to eq usd_value_float
+        expect(context.usd_value).to eq usd_value_float
       end
     end
 
@@ -31,7 +31,7 @@ describe Currencies::Fetch do
       end
 
       it 'failure result' do
-        expect(subject).to be_failure
+        expect(context).to be_failure
       end
     end
   end
