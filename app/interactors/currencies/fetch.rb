@@ -1,4 +1,4 @@
-module Currency
+module Currencies
   class Fetch
     include Interactor
 
