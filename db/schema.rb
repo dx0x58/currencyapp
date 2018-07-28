@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_23_163842) do
+ActiveRecord::Schema.define(version: 2018_07_28_171813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_partman"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_07_23_163842) do
     t.boolean "active", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["active"], name: "create_index_statement", unique: true, where: "active"
   end
 
   create_table "currencies_p2018w26", id: :bigint, default: -> { "nextval('currencies_id_seq'::regclass)" }, force: :cascade do |t|
