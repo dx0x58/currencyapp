@@ -96,44 +96,4 @@ ActiveRecord::Schema.define(version: 2018_07_23_163842) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "currencies_p2018w35", id: :bigint, default: -> { "nextval('currencies_id_seq'::regclass)" }, force: :cascade do |t|
-    t.decimal "value", precision: 7, scale: 4, null: false
-    t.datetime "expiration_date"
-    t.boolean "active", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "currencies_p2018w36", id: :bigint, default: -> { "nextval('currencies_id_seq'::regclass)" }, force: :cascade do |t|
-    t.decimal "value", precision: 7, scale: 4, null: false
-    t.datetime "expiration_date"
-    t.boolean "active", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "currencies_p2018w37", id: :bigint, default: -> { "nextval('currencies_id_seq'::regclass)" }, force: :cascade do |t|
-    t.decimal "value", precision: 7, scale: 4, null: false
-    t.datetime "expiration_date"
-    t.boolean "active", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "currencies_p2018w38", id: :bigint, default: -> { "nextval('currencies_id_seq'::regclass)" }, force: :cascade do |t|
-    t.decimal "value", precision: 7, scale: 4, null: false
-    t.datetime "expiration_date"
-    t.boolean "active", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "currencies_p2018w39", id: :bigint, default: -> { "nextval('currencies_id_seq'::regclass)" }, force: :cascade do |t|
-    t.decimal "value", precision: 7, scale: 4, null: false
-    t.datetime "expiration_date"
-    t.boolean "active", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
