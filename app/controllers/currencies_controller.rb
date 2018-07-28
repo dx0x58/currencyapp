@@ -1,3 +1,5 @@
 class CurrenciesController < ApplicationController
-  def index; end
+  def index
+    @presenter = CurrencyPresenter.new(Currency.active)
+  end
 end
