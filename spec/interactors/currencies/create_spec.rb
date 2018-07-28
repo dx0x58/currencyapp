@@ -7,9 +7,7 @@ describe Currencies::Create do
     context 'when params is valid' do
       let(:usd_value) { 54.25 }
 
-      it 'success result' do
-        expect(context).to be_success
-      end
+      it { is_expected.to be_success }
 
       it 'create one currency' do
         expect { context }.to change(Currency, :count).by(1)
@@ -43,9 +41,7 @@ describe Currencies::Create do
       context 'when too high value' do
         let(:usd_value) { 545_454.25 }
 
-        it 'failure result' do
-          expect(context).to be_failure
-        end
+        it { is_expected.to be_failure }
 
         it 'do not create currency' do
           expect { context }.not_to change(Currency, :count)
@@ -56,7 +52,7 @@ describe Currencies::Create do
         let(:usd_value) { 'not_a_number' }
 
         it 'failure result' do
-          expect(context).to be_failure
+          is_expected.to be_failure
         end
 
         it 'do not create currency' do

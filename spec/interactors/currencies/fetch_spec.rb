@@ -15,9 +15,7 @@ describe Currencies::Fetch do
     end
 
     context 'when response is correct' do
-      it 'success result' do
-        expect(context).to be_success
-      end
+      it { is_expected.to be_success }
 
       it 'fetch correct value' do
         expect(context.usd_value).to eq usd_value_float
@@ -30,9 +28,7 @@ describe Currencies::Fetch do
           .to_return(status: 502, body: '')
       end
 
-      it 'failure result' do
-        expect(context).to be_failure
-      end
+      it { is_expected.to be_failure }
     end
   end
 end
