@@ -7,8 +7,8 @@ module Currencies
     def call
       # активной в единицу времени может быть только одна запись
       Currency.transaction do
-        deactivate_all
-        create_and_activate
+        deactivate_previous
+        activate_new
       end
     rescue StandardError => e
       context.fail!(message: e.message)
@@ -16,12 +16,13 @@ module Currencies
 
     private
 
-    def deactivate_all
-      # использование update! в цикле вместо update_all для возможности кинуть исключение внутри транзакции
-      Currency.active.find_each { |currency_item| currency_item.update!(active: false) }
+    def deactivate_previous
+      active_currency = Currency.active
+      return if active_currency.blank?
+      active_currency.update!(active: false)
     end
 
-    def create_and_activate
+    def activate_new
       Currency.create!(value: usd_value, active: true)
     end
   end
