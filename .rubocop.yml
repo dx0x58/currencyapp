@@ -2,7 +2,6 @@ require: rubocop-rspec
 
 AllCops:
   Exclude:
-  Exclude:
     - 'app/views/**/*'
     - 'bin/*'
     - 'db/schema.rb'
