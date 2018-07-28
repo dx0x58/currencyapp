@@ -1,5 +1,11 @@
 {
   "name": "funbox_currency",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.1.3"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Maxim Derbenev <maxim_ek@mail.ru>",
+  "license": "MIT"
 }
