@@ -2,28 +2,37 @@ module Currencies
   class Create
     include Interactor
 
-    delegate :usd_value, to: :context
+    delegate :params, :active, to: :context
 
     def call
-      # активной в единицу времени может быть только одна запись
       Currency.transaction do
-        deactivate_previous
-        activate_new
+        deactivate_previous if allowed_activate?
+        create
       end
-    rescue StandardError => e
-      context.fail!(message: e.message)
     end
 
     private
 
     def deactivate_previous
-      active_currency = Currency.active
-      return if active_currency.blank?
-      active_currency.update!(active: false)
+      Currency.active.try(:update!, active: false)
     end
 
-    def activate_new
-      Currency.create!(value: usd_value, active: true)
+    def create
+      currency = Currency.create(params.merge!(active: allowed_activate?))
+      context.currency = currency
+      context.fail!(message: currency.errors.full_messages) unless currency.persisted?
+    end
+
+    def allowed_activate?
+      # status passed as argument
+      return active if active.present?
+
+      expiration_date = Currency.forced.try(:expiration_date)
+
+      # forced items not exists
+      return true if expiration_date.blank?
+
+      expiration_date < Time.current
     end
   end
 end
