@@ -18,7 +18,7 @@ describe Currencies::Fetch do
       it { is_expected.to be_success }
 
       it 'fetch correct value' do
-        expect(context.usd_value).to eq usd_value_float
+        expect(context.params[:value]).to eq usd_value_float
       end
     end
 
