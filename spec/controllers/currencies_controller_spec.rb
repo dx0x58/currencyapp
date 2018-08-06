@@ -9,7 +9,7 @@ RSpec.describe CurrenciesController, type: :controller do
     it { expect(response).to have_http_status(:ok) }
 
     context 'when active currency' do
-      context 'exist' do
+      context 'with existing active currency' do
         let!(:active_currency) { create :currency, :active }
 
         before { get :index }
@@ -19,8 +19,7 @@ RSpec.describe CurrenciesController, type: :controller do
         end
       end
 
-      context 'not exist' do
-
+      context 'without existing active currency' do
         before { get :index }
 
         it 'assigns active currency' do
