@@ -30,4 +30,7 @@ Metrics/MethodLength:
   Max: 30
 
 Metrics/BlockLength:
-  Max: 30
+  Enabled: false
+
+Rspec/NestedGroups:
+  Enabled: false
