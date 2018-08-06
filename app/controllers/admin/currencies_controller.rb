@@ -7,12 +7,13 @@ module Admin
     def create
       result = Currencies::Create.call(params: currency_params, active: true)
       @currency = result.currency
-      redirect_or_render(result.success?)
+      redirect_or_render(result)
     end
 
     def update
-      @currency = Currency.find(params[:id])
-      redirect_or_render(@currency.update(currency_params))
+      result = Currencies::Update.call(currency_id: params[:id], params: currency_params)
+      @currency = result.currency
+      redirect_or_render(result)
     end
 
     private
@@ -22,7 +23,7 @@ module Admin
     end
 
     def redirect_or_render(result)
-      if result
+      if result.success?
         flash[:notice] = I18n.t('ui.save_success')
         redirect_to :admin_root
       else
