@@ -5,7 +5,7 @@ module Currencies
     CURRENCY_URI = 'http://www.cbr.ru/scripts/XML_daily.asp'.freeze
 
     def call
-      context.usd_value = parse_value(xml_data)
+      context.params = { value: parse_value(xml_data) }
     rescue StandardError => e
       context.fail!(message: e.message)
     end
