@@ -9,6 +9,8 @@ module Currencies
         deactivate_previous if allowed_activate?
         create
       end
+
+      notify if allowed_activate?
     end
 
     private
@@ -33,6 +35,10 @@ module Currencies
       return true if expiration_date.blank?
 
       expiration_date < Time.current
+    end
+
+    def notify
+      Currencies::Notify.call(value: context.currency.value)
     end
   end
 end

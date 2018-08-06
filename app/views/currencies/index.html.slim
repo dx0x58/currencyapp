@@ -1,4 +1,5 @@
-- if @presenter.present?
-  h1= @presenter.rub_value
-- else
-  = I18n.t('ui.currency_not_exist')
+.currency-value
+  - if @presenter.present?
+    = @presenter.rub_value
+  - else
+    = I18n.t('ui.currency_not_exist')

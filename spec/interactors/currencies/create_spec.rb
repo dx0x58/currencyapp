@@ -69,6 +69,11 @@ describe Currencies::Create do
           end
         end
       end
+
+      it 'call notify service' do
+        expect(Currencies::Notify).to receive(:call).with(value: params[:value])
+        context
+      end
     end
 
     context 'when params is invalid' do
@@ -79,6 +84,11 @@ describe Currencies::Create do
 
         it 'do not create currency' do
           expect { context }.not_to change(Currency, :count)
+        end
+
+        it 'not call notify service' do
+          expect(Currencies::Notify).not_to receive(:call).with(value: params[:value])
+          context
         end
       end
 
