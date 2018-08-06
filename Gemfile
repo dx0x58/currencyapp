@@ -13,6 +13,7 @@ gem 'slim-rails'
 gem 'interactor', '~> 3.0'
 gem 'http'
 gem 'simple_form'
+gem 'redis'
 
 group :development, :test do
   gem 'factory_bot_rails'
