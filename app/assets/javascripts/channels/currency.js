@@ -6,7 +6,7 @@ $(document).ready(function($) {
 
         received: function(data) {
             console.log(data);
-            $('.currency-value').text(data.value + ' ₽');
+            $('.currency-value').text('1 USD ⇄ '+data.value + ' ₽');
         }
     });
 });

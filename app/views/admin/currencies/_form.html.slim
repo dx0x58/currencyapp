@@ -1,4 +1,12 @@
-= simple_form_for([:admin, @currency]) do |f|
-  = f.input :value
-  = f.input :expiration_date
-  = f.submit
+.card.col-md-7.offset-md-2
+  .card-body
+    .card-title
+      .logout.text-right
+        = link_to 'Home page', root_path
+
+    == render 'shared/messages'
+    = simple_form_for([:admin, @currency], html: {class: 'deck'}) do |f|
+      = f.input :value, placeholder: '00.0000'
+      = f.input :expiration_date
+      = f.submit nil, class: "btn btn-#{@currency.persisted? ? 'success' : 'primary'}"
+

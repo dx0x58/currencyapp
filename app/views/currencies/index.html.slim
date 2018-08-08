@@ -1,5 +1,15 @@
-.currency-value
-  - if @presenter.present?
-    = @presenter.rub_value
-  - else
-    = I18n.t('ui.currency_not_exist')
+.col-md-6.offset-md-4
+  .admin.text-right.mw-22
+    = link_to 'Admin panel', admin_root_path
+  .card.mw-22
+    .card-header
+      b= I18n.t('ui.currency_header')
+
+    .card-body.text-center.font-weight-light
+      card-title.currency-value
+        - if @presenter.present?
+          span= '1 USD ⇄ '
+          = @presenter.rub_value
+        - else
+          = I18n.t('ui.currency_not_exist')
+

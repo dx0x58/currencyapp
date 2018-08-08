@@ -32,6 +32,7 @@
 en:
   hello: "Hello world"
   ui:
+    currency_header: 'USD TO RUB'
     currency_not_exist: 'Data not exist :('
     save_success: 'Saved successful!'
-    save_failure: 'Do not saved, correct errors!'
+    save_failure: 'Not saved, correct errors!'
