@@ -33,6 +33,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver', '~> 3.3'
+  gem 'chromedriver-helper', '~> 1.1.0'
   gem 'webmock'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'rails-controller-testing'
