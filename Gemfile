@@ -14,6 +14,8 @@ gem 'interactor', '~> 3.0'
 gem 'http'
 gem 'simple_form'
 gem 'redis'
+gem 'whenever', require: false
+gem 'foreman', require: false
 
 group :development, :test do
   gem 'factory_bot_rails'
