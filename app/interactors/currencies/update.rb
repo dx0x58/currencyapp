@@ -8,9 +8,15 @@ module Currencies
 
       currency.update!(context.params)
 
-      Currencies::Notify.call(value: context.params[:value])
+      notify
     rescue ActiveRecord::RecordInvalid => e
       context.fail!(message: e.message)
+    end
+
+    private
+
+    def notify
+      Currencies::Notify.call(value: context.params[:value])
     end
   end
 end

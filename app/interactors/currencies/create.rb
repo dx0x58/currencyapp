@@ -29,9 +29,8 @@ module Currencies
       # status passed as argument
       return active if active.present?
 
-      expiration_date = Currency.forced.try(:expiration_date)
-
       # forced items not exists
+      expiration_date = Currency.forced.try(:expiration_date)
       return true if expiration_date.blank?
 
       expiration_date < Time.current
