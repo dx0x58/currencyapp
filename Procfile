@@ -1,1 +1,1 @@
-web: bundle exec whenever --update-crontab && bundle exec puma
+web: bundle exec whenever --update-crontab --set environment=$RAILS_ENV && bundle exec puma
