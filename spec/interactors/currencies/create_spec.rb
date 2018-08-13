@@ -43,8 +43,8 @@ describe Currencies::Create do
         context 'with time not expired' do
           before { context }
 
-          it 'create new not-active currency' do
-            expect(Currency.last.active).to be_falsey
+          it 'not create new not-active currency' do
+            expect(Currency.last.active).to be_truthy
           end
 
           it 'keep active old forced currency' do

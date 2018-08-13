@@ -5,12 +5,14 @@ module Currencies
     delegate :params, :active, to: :context
 
     def call
+      context.fail!(message: 'not allowed to activate') unless allowed_activate?
+
       Currency.transaction do
-        deactivate_previous if allowed_activate?
+        deactivate_previous
         create
       end
 
-      notify if allowed_activate?
+      notify
     end
 
     private
