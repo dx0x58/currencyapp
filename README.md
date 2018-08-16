@@ -1,24 +1,10 @@
-# README
+Проект реализован на rails 5.2, ruby 2.5.1, postrgres 9.6 c расширением pg_partman.
+Pg_partman ипользуется для партицирования таблиц currencies, тк информация о курсе валюты периодически обновляемая и может быть интересна для составления аналитики в хронологическом порядке.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Данные обновляются раз в минуту запуская сервис по крону, инеграция с cron с помощью гема whenever.
 
-Things you may want to cover:
+Обновление курса валюты в браузере реализовано с помощью ActionCable
 
-* Ruby version
+Тесты на весь функционал приложения, в тч system-тесты для проверки взаимодействия с UI и обновления курса по WebSockets.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Демо: http://178.128.197.14:8080
