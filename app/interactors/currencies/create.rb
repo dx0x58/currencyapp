@@ -10,9 +10,8 @@ module Currencies
       Currency.transaction do
         deactivate_previous
         create
+        notify
       end
-
-      notify
     end
 
     private
